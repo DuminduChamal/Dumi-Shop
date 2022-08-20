@@ -1,0 +1,48 @@
+.Product {
+    display: flex;
+    justify-content: center;
+    margin: 8rem 0;
+    // height: 80vh;
+    // align-items: center;
+    
+    // flex-direction: row;
+}
+
+.Product__imageCard {
+    border: 1px solid black;
+    margin: 0 2rem;
+    transition: 0.3s;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.Product__title {
+    padding: 2rem;
+    text-align: center;
+    font-size: 1.75rem;
+}
+
+.Product__cardImage {
+    width: 25rem;
+    height: 22rem;
+    padding: 0 0.5rem 0.25rem 0.5rem;
+}
+
+.Product__detailsCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: lightgray;
+    height: auto;
+    padding: 0 2rem;
+    border-radius: 1rem;
+    
+}
+
+.Product__addToCartBtn {
+    margin: 2rem 0 0;
+    padding: 1rem;
+    background: #9bcc34;
+    border: none;
+    border-radius: 1rem;
+}

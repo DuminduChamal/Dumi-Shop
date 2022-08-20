@@ -4,6 +4,7 @@ export const initialState = {
   userData: null,
   userName: null,
   selectedCategory: null,
+  selectedProduct: null,
 };
 
 export const getBasketTotal = (basket) => {
@@ -16,6 +17,12 @@ const reducer = (state, action) => {
       return {
         ...state,
         selectedCategory: action.category,
+      };
+
+    case "SET_SELECTEDPRODUCT":
+      return {
+        ...state,
+        selectedProduct: action.product,
       };
 
     case "ADD_TO_BASKET":
