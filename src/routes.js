@@ -7,6 +7,7 @@ import { MainLayout } from "./layout/MainLayout";
 
 // pages
 import { Home } from "./pages/home/Home";
+import { ProductsList } from "./pages/productsList/ProductsList";
 
 function Router() {
   return useRoutes([
@@ -16,6 +17,7 @@ function Router() {
       children: [
         { path: "/", element: <Navigate to="/home" /> },
         { path: "home", element: <Home /> },
+        { path: "productsList", element: <ProductsList /> },
         // { path: "chat/:id", element: <ChatWindow /> },
         // // { path: 'login', element: <Login />},
         // { path: "404", element: <NotFound /> },

@@ -3,6 +3,7 @@ export const initialState = {
   //   user: null,
   userData: null,
   userName: null,
+  selectedCategory: null,
 };
 
 export const getBasketTotal = (basket) => {
@@ -11,22 +12,16 @@ export const getBasketTotal = (basket) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "SET_USERDATA":
+    case "SET_SELECTEDCATEGORY":
       return {
         ...state,
-        userData: action.data,
+        selectedCategory: action.category,
       };
 
     case "ADD_TO_BASKET":
       return {
         ...state,
         basket: [...state.basket, action.item],
-      };
-
-    case "SET_USER":
-      return {
-        ...state,
-        user: action.user,
       };
 
     case "EMPTY_BASKET":
