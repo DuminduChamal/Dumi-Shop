@@ -46,3 +46,8 @@
     border: none;
     border-radius: 1rem;
 }
+
+.disabled {
+    pointer-events: none;
+    background: darkgray;
+}

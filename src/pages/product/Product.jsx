@@ -20,6 +20,14 @@ export const Product = () => {
     setQuantity(value);
   };
 
+  const addToCart = (name, image, productID) => {
+    const data = { name, image, productID, quantity, total };
+    dispatch({
+      type: "ADD_TO_CART",
+      item: data,
+    });
+  };
+
   return (
     <div className="Product">
       <div className="Product__imageCard">
@@ -28,7 +36,7 @@ export const Product = () => {
       </div>
       <div className="Product__detailsCard">
         <p>Price per unit: Rs. {selectedProduct.price}</p>
-        <p>Producer Name: Mr.yetToBeDefined</p>
+        <p>Producer Name: {selectedProduct.producerName}</p>
         <p>
           Quantity:{" "}
           <input
@@ -40,7 +48,14 @@ export const Product = () => {
           />
         </p>
         <p>Total Price: Rs. {total}</p>
-        <button className="Product__addToCartBtn">Add to Cart</button>
+        {quantity > 0 ? (
+          <button className="Product__addToCartBtn" onClick={() => addToCart(selectedProduct.name, selectedProduct.image, selectedProduct.productID)}>Add to Cart</button>
+        ) : (
+          <button className="Product__addToCartBtn disabled">
+            Add to Cart
+          </button>
+        )}
+        {/* <button className="Product__addToCartBtn disabled">Add to Cart</button> */}
         {/* <div className='Product__detailsLowerSection'>
                 <button 
             </div> */}

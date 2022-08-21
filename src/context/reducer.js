@@ -1,6 +1,9 @@
 export const initialState = {
   //     basket: [],
   //   user: null,
+  cart: [],
+  totalQuantity: 0,
+  totalAmount: 0,
   userData: null,
   userName: null,
   selectedCategory: null,
@@ -25,10 +28,14 @@ const reducer = (state, action) => {
         selectedProduct: action.product,
       };
 
-    case "ADD_TO_BASKET":
+    case "ADD_TO_CART":
+      console.log("ADD_TO_CART - ", action.item);
       return {
         ...state,
-        basket: [...state.basket, action.item],
+        cart: [...state.cart, action.item],
+        totalQuantity:
+          parseInt(state.totalQuantity) + parseInt(action.item.quantity),
+        totalAmount: state.totalAmount + action.item.total,
       };
 
     case "EMPTY_BASKET":
@@ -37,14 +44,15 @@ const reducer = (state, action) => {
         basket: [],
       };
 
-    case "REMOVE_FROM_BASKET":
-      const index = state.basket.findIndex(
-        (basketItem) => basketItem.id === action.id
-      );
-      let newBasket = [...state.basket];
+    case "REMOVE_FROM_CART":
+      console.log("REMOVE_FROM_CART", action.index);
+      const index = action.index;
+      const removingQuantity = state.cart[index].quantity;
+      const removingTotal = state.cart[index].total;
+      let newCart = [...state.cart];
 
       if (index >= 0) {
-        newBasket.splice(index, 1);
+        newCart.splice(index, 1);
       } else {
         console.warn(
           `Cant remove product (id: ${action.id}) as its not in the basket`
@@ -52,7 +60,10 @@ const reducer = (state, action) => {
       }
       return {
         ...state,
-        basket: newBasket,
+        cart: newCart,
+        totalQuantity:
+          parseInt(state.totalQuantity) - parseInt(removingQuantity),
+        totalAmount: state.totalAmount - removingTotal,
       };
 
     default:
