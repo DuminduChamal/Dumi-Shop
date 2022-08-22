@@ -1,7 +1,6 @@
 export const initialState = {
-  //     basket: [],
-  //   user: null,
   cart: [],
+  ordersList: [],
   totalQuantity: 0,
   totalAmount: 0,
   userData: null,
@@ -42,6 +41,15 @@ const reducer = (state, action) => {
       return {
         ...state,
         basket: [],
+      };
+
+    case "SUBMIT_ORDER":
+      return {
+        ...state,
+        ordersList: [...state.ordersList, action.data],
+        cart: [],
+        totalQuantity: 0,
+        totalAmount: 0
       };
 
     case "REMOVE_FROM_CART":

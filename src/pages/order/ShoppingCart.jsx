@@ -29,6 +29,21 @@ export const ShoppingCart = () => {
       });
   }
 
+  const submitOrder = () => {
+
+    const data = {
+        createdDate,
+        totalAmount,
+        totalQuantity,
+        cart,
+        orderID: `order-${Math.floor(Math.random() * 1000)}`
+    }
+    dispatch({
+        type: "SUBMIT_ORDER",
+        data: data,
+      });
+  }
+
   return (
     <div className="ShoppingCart">
       <div className="ShoppingCart__Title">Shopping Cart</div>
@@ -84,7 +99,7 @@ export const ShoppingCart = () => {
               </tr>
             </tbody>
           </Table>
-          <button className='ShoppingCart__submitButton'>Submit</button>
+          <button className='ShoppingCart__submitButton' onClick={() => submitOrder()}>Submit</button>
         </div>
       </div>
     </div>

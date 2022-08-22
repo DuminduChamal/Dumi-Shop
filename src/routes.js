@@ -8,6 +8,7 @@ import { MainLayout } from "./layout/MainLayout";
 // pages
 import { Home } from "./pages/home/Home";
 import { ShoppingCart } from "./pages/order/ShoppingCart";
+import { OrdersList } from "./pages/ordersList/OrdersList";
 import { Product } from "./pages/product/Product";
 import { ProductsList } from "./pages/productsList/ProductsList";
 
@@ -22,6 +23,7 @@ function Router() {
         { path: "productsList", element: <ProductsList /> },
         { path: "productsList/:product", element: <Product /> },
         { path: "shoppingCart", element: <ShoppingCart /> },
+        { path: "ordersList", element: <OrdersList /> },
         // { path: "chat/:id", element: <ChatWindow /> },
         // // { path: 'login', element: <Login />},
         // { path: "404", element: <NotFound /> },

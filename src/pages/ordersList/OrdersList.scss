@@ -1,0 +1,12 @@
+.OrdersList {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+}
+
+.OrdersList__title {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+
+}
