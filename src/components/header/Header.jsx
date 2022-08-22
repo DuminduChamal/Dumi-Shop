@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <div className='Header'>
         <img className='Header__logo' src={logo} onClick={()=> navigate('/')}/>
-        <div className='Header__logoText'>Dumi Shop</div>
+        <div className='Header__logoText' onClick={()=> navigate('/')}>Dumi Shop</div>
         <div className='Header__navItem' onClick={() => navigate('/ordersList')}><VscHistory /></div>
         <div className='Header__navIte Header__flexGrow'></div>
         <div className='Header__navItem' onClick={() => navigate('/shoppingCart')}><TiShoppingCart /></div>
