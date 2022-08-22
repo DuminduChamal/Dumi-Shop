@@ -1,6 +1,21 @@
 export const initialState = {
   cart: [],
-  ordersList: [],
+  ordersList: [
+    {
+      createdDate: "2022-08-21",
+      totalAmount: "6500",
+      totalQuantity: 6,
+      cart: [],
+      orderID: "order-123",
+    },
+    {
+      createdDate: "2022-08-22",
+      totalAmount: "9000",
+      totalQuantity: 10,
+      cart: [],
+      orderID: "order-142",
+    },
+  ],
   totalQuantity: 0,
   totalAmount: 0,
   userData: null,

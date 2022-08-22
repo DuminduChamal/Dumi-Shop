@@ -15,6 +15,7 @@ import chicken from "../../assets/categories/ChickenProducts_Lead.jpeg";
 import dairy from "../../assets/categories/dairy.jpeg";
 import produce from "../../assets/categories/produce.jpeg";
 import seafood from "../../assets/categories/seafood.jpeg";
+import logo from '../../assets/pngShop.png'
 
 const categories = [
   {
@@ -74,7 +75,8 @@ const CategoryCard = ({ title, image }) => {
 export const Home = () => {
   return (
     <div className="Home">
-      <div className="Home__logo">LOGO</div>
+      <img className="Home__logo" src={logo} />
+      <div className="Home__logoText">Dumi Shop</div>
       <div className="Home__tagline">Your Order.... Our Service....</div>
       {/* <div className="Home__search">
         <input

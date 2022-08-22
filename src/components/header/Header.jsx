@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 // styling
 import './Header.scss'
+import logo from '../../assets/pngShop.png'
 
 // icons
 import { VscHistory } from 'react-icons/vsc';
@@ -14,7 +15,8 @@ export const Header = () => {
     const navigate = useNavigate();
   return (
     <div className='Header'>
-        <div className='Header__logo' onClick={()=> navigate('/')}>Logo</div>
+        <img className='Header__logo' src={logo} onClick={()=> navigate('/')}/>
+        <div className='Header__logoText'>Dumi Shop</div>
         <div className='Header__navItem' onClick={() => navigate('/ordersList')}><VscHistory /></div>
         <div className='Header__navIte Header__flexGrow'></div>
         <div className='Header__navItem' onClick={() => navigate('/shoppingCart')}><TiShoppingCart /></div>
