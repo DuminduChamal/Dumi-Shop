@@ -15,7 +15,8 @@ export const Header = () => {
   return (
     <div className='Header'>
         <div className='Header__logo' onClick={()=> navigate('/')}>Logo</div>
-        <div className='Header__navItem Header__flexGrow' onClick={() => navigate('/ordersList')}><VscHistory /></div>
+        <div className='Header__navItem' onClick={() => navigate('/ordersList')}><VscHistory /></div>
+        <div className='Header__navIte Header__flexGrow'></div>
         <div className='Header__navItem' onClick={() => navigate('/shoppingCart')}><TiShoppingCart /></div>
         {/* <button className='Header__navItem Header__flexGrow'><VscHistory /></button>
         <button className='Header__navItem'><TiShoppingCart /></button> */}

@@ -6,6 +6,13 @@
     }
 }
 
+.ShoppingCart__alert {
+    position: absolute;
+    top: 10rem;
+    left: 36rem;
+    
+}
+
 .ShoppingCart__Title {
     text-align: center;
     font-size: 1.5rem;
@@ -15,7 +22,7 @@
 .ShoppingCart__container {
     display: flex;
     justify-content: space-around;
-    margin: 6rem 0;
+    margin: 9rem 0;
 }
 
 .ShoppingCart__rightSection {

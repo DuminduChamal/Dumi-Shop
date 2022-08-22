@@ -1,7 +1,8 @@
 // packages
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
+import Alert from "react-bootstrap/Alert";
 
 // styling
 import "./ShoppingCart.scss";
@@ -14,7 +15,8 @@ export const ShoppingCart = () => {
   const [createdDate, setCreatedDate] = useState(
     new Date().toISOString().slice(0, 10)
   );
-  const [deliveryDate, setDeliveryDate] = useState('T.D');
+  const [deliveryDate, setDeliveryDate] = useState("T.D");
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     // var d = new Date();
@@ -24,29 +26,37 @@ export const ShoppingCart = () => {
 
   const removeItemCart = (index) => {
     dispatch({
-        type: "REMOVE_FROM_CART",
-        index: index,
-      });
-  }
+      type: "REMOVE_FROM_CART",
+      index: index,
+    });
+  };
 
   const submitOrder = () => {
-
     const data = {
-        createdDate,
-        totalAmount,
-        totalQuantity,
-        cart,
-        orderID: `order-${Math.floor(Math.random() * 1000)}`
-    }
+      createdDate,
+      totalAmount,
+      totalQuantity,
+      cart,
+      orderID: `order-${Math.floor(Math.random() * 1000)}`,
+    };
     dispatch({
-        type: "SUBMIT_ORDER",
-        data: data,
-      });
-  }
+      type: "SUBMIT_ORDER",
+      data: data,
+    });
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 1000);
+  };
 
   return (
     <div className="ShoppingCart">
       <div className="ShoppingCart__Title">Shopping Cart</div>
+      {showAlert && (
+        <Alert variant="success" className="ShoppingCart__alert">
+          Order Submitted Successfully!
+        </Alert>
+      )}
       <div className="ShoppingCart__container">
         <div className="ShoppingCart__leftSection">
           <Table striped bordered hover>
@@ -66,25 +76,33 @@ export const ShoppingCart = () => {
                   <td>{item.name}</td>
                   <td>{item.quantity}</td>
                   <td>{item.total}</td>
-                  <td><Button variant="danger" onClick={()=>removeItemCart(index)}>Remove</Button></td>
+                  <td>
+                    <Button
+                      variant="danger"
+                      onClick={() => removeItemCart(index)}
+                    >
+                      Remove
+                    </Button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </Table>
+          {cart.length == 0 && <p style={{textAlign: 'center'}}>Cart is empty</p>}
         </div>
         <div className="ShoppingCart__rightSection">
           <Table striped bordered hover>
             <thead>
-            <tr>
-              <th>Created Date</th>
-              <td>{createdDate}</td>
-            </tr>
+              <tr>
+                <th>Created Date</th>
+                <td>{createdDate}</td>
+              </tr>
             </thead>
             <tbody>
-              <tr>
+              {/* <tr>
                 <th>Delivery Date</th>
                 <td>{deliveryDate}</td>
-              </tr>
+              </tr> */}
               <tr>
                 <th>Total Quantity</th>
                 <td>{totalQuantity}</td>
@@ -99,7 +117,12 @@ export const ShoppingCart = () => {
               </tr>
             </tbody>
           </Table>
-          <button className='ShoppingCart__submitButton' onClick={() => submitOrder()}>Submit</button>
+          <button
+            className="ShoppingCart__submitButton"
+            onClick={() => submitOrder()}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>

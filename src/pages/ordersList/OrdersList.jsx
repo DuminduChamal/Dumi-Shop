@@ -12,9 +12,10 @@ import { useStateValue } from "../../context/StateProvider";
 export const OrdersList = () => {
   const [{ ordersList, totalQuantity, totalAmount }, dispatch] = useStateValue();
 
-  const removeItemCart = (index) => {
+  const removeItemOrder = (index) => {
+    console.log("index from orderslist", index)
     dispatch({
-        type: "REMOVE_FROM_CART",
+        type: "REMOVE_FROM_ORDERSLIST",
         index: index,
       });
   }
@@ -33,7 +34,7 @@ export const OrdersList = () => {
             </tr>
           </thead>
           <tbody>
-            {ordersList.map((item, index) => (
+            {ordersList?.map((item, index) => (
               <tr key={item.orderID}>
                 <td>{item.orderID}</td>
                 <td>{item.createdDate}</td>
@@ -42,7 +43,7 @@ export const OrdersList = () => {
                 <td>
                   <Button
                     variant="danger"
-                    onClick={() => removeItemCart(index)}
+                    onClick={() => removeItemOrder(index)}
                   >
                     Remove
                   </Button>

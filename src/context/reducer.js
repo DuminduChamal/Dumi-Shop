@@ -49,7 +49,7 @@ const reducer = (state, action) => {
         ordersList: [...state.ordersList, action.data],
         cart: [],
         totalQuantity: 0,
-        totalAmount: 0
+        totalAmount: 0,
       };
 
     case "REMOVE_FROM_CART":
@@ -72,6 +72,22 @@ const reducer = (state, action) => {
         totalQuantity:
           parseInt(state.totalQuantity) - parseInt(removingQuantity),
         totalAmount: state.totalAmount - removingTotal,
+      };
+
+    case "REMOVE_FROM_ORDERSLIST":
+      console.log("REMOVE_FROM_CART", action.index);
+      let newOrdersList = [...state.ordersList];
+
+      if (action.index >= 0) {
+        newOrdersList.splice(action.index, 1);
+      } else {
+        console.warn(
+          `Cant remove product (id: ${action.id}) as its not in the basket`
+        );
+      }
+      return {
+        ...state,
+        ordersList: newOrdersList,
       };
 
     default:

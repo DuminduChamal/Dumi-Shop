@@ -76,7 +76,7 @@ export const Home = () => {
     <div className="Home">
       <div className="Home__logo">LOGO</div>
       <div className="Home__tagline">Your Order.... Our Service....</div>
-      <div className="Home__search">
+      {/* <div className="Home__search">
         <input
           type="text"
           name="name"
@@ -84,7 +84,7 @@ export const Home = () => {
           placeholder="Type here to browse"
         />
         <button className="Home__searchButton">Search</button>
-      </div>
+      </div> */}
       <div className="Home__categories">
         <div className="Home__categoriesTitle">
           <span></span>
