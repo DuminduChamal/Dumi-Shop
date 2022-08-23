@@ -201,7 +201,7 @@ export const Home = () => {
           value={filterName}
           onChange={handleFilterByName}
         />
-        <button className="Home__searchButton">Search</button>
+        {/* <button className="Home__searchButton">Search</button> */}
       </div>
       <div className="Home__categories">
         {/* <div className="Home__categoriesList">

@@ -11,6 +11,7 @@ import { ShoppingCart } from "./pages/order/ShoppingCart";
 import { OrdersList } from "./pages/ordersList/OrdersList";
 import { Product } from "./pages/product/Product";
 import { ProductsList } from "./pages/productsList/ProductsList";
+import { Categories } from "./pages/categories/Categories";
 
 function Router() {
   return useRoutes([
@@ -24,6 +25,7 @@ function Router() {
         { path: "productsList/:product", element: <Product /> },
         { path: "shoppingCart", element: <ShoppingCart /> },
         { path: "ordersList", element: <OrdersList /> },
+        { path: "categories", element:  <Categories/> },
         // { path: "chat/:id", element: <ChatWindow /> },
         // // { path: 'login', element: <Login />},
         // { path: "404", element: <NotFound /> },

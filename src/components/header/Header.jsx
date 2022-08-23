@@ -9,6 +9,7 @@ import logo from '../../assets/pngShop.png'
 // icons
 import { VscHistory } from 'react-icons/vsc';
 import { TiShoppingCart } from 'react-icons/ti';
+import { BiCategoryAlt } from 'react-icons/bi';
 
 export const Header = () => {
 
@@ -18,6 +19,7 @@ export const Header = () => {
         <img className='Header__logo' src={logo} onClick={()=> navigate('/')}/>
         <div className='Header__logoText' onClick={()=> navigate('/')}>Dumi Shop</div>
         <div className='Header__navItem' onClick={() => navigate('/ordersList')}><VscHistory /></div>
+        <div className='Header__navItem' onClick={() => navigate('/categories')}><BiCategoryAlt /></div>
         <div className='Header__navIte Header__flexGrow'></div>
         <div className='Header__navItem' onClick={() => navigate('/shoppingCart')}><TiShoppingCart /></div>
         {/* <button className='Header__navItem Header__flexGrow'><VscHistory /></button>
